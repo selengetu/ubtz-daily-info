@@ -109,4 +109,46 @@ class HomeController extends Controller {
         Info::where('info_id', '=', $id)->delete();
         return Redirect('home');
     }
+    public function report() {
+        $query = "";
+        
+        $startdate= Input::get('sdate');
+        $enddate = Input::get('fdate');
+        $sexecutor = Input::get('sexecutor_id');
+        if ($startdate !=0 && $startdate && $enddate !=0 && $enddate !=NULL) {
+            $query.="and date between '".$startdate."' and '".$enddate." 23:59:59'";
+    
+        }
+        else
+        {
+            $query.=" ";
+    
+        }
+    
+        if ($sexecutor!=NULL && $sexecutor !=0) {
+            $type =DB::select('select t.executor_type from EXECUTOR t where t.executor_id =  '. $sexecutor.'');
+            if ($type[0]->executor_type ==1){
+                $dep =DB::select('select executor_par from EXECUTOR t where t.executor_id =  '. $sexecutor.'');
+    
+                $query.=" and t.executor_id in (select executor_id from EXECUTOR t where t.executor_par='".$dep[0]->executor_par."')";
+            }
+            else{
+                $query.=" and t.executor_id = '".$sexecutor."'";
+            }
+        }
+        else
+        {
+            $sexecutor=0;
+            $query.=" ";
+    
+            
+        }
+    
+        $executor = DB::select('select e.*, p.executor_abbr as dep_abbr from EXECUTOR e, executor p
+        where p.executor_id=e.executor_par order by report_no, ex_report_no');
+        $dep = DB::select('select * from EXECUTOR t where t.executor_type!=2 order by executor_abbr ');
+        $info = DB::select('select t.* , e.*, p.executor_name as dep_name , p.executor_abbr as dep_abbr from daily_info t ,
+         executor e, executor p where e.executor_id=t.executor_id and p.executor_id=e.executor_par '.$query.' order by e.report_no, date');
+        return view('report',compact('info', 'executor', 'dep'));
+    }
 }

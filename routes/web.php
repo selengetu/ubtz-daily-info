@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/home', 'HomeController@index')->name('index');
+Route::get('/report', 'HomeController@report')->name('report');
+Route::post('/report', 'HomeController@report')->name('report');
 Route::get('/info/delete/{id}', 'HomeController@destroy');
 Route::post('/adddaily','HomeController@store');
 Route::post('/updateinfo','HomeController@update');

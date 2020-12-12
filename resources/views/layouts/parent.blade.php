@@ -107,7 +107,8 @@
                     <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Бүртгэл</span></a>
                         </li>
                     
-                      
+                        <li> <a class="waves-effect waves-dark" href="{{ route('report') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Тайлан</span></a>
+                        </li>
                     </ul>
                   
                 </nav>

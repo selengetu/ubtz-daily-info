@@ -80,22 +80,20 @@
                                     </div>
                                   </div>
                                 </form>
-                                  <div class="col-md-1">
-                                    <div class="form-group">
-                                        <label for="count_year">.</label>
-                                        <button class="btn btn-info" id="export-btn" onclick="printData()"><i class="fa fa-print" aria-hidden="true"></i> Хэвлэх/Pdf</button>
-                                    </div>
+                                  
                                     
     
     
                                 </div>
                              
                               </div>
-                              <div class="col-md-10">
-
-                            </div>
-                           
+                            
+                            
                               <div class="table-responsive m-t-20">
+                            
+
+
+                             
                         <table class="table table-bordered vm"
                             style="font-size:10px; color:black; word-wrap:break-word;">
                             <thead>
@@ -375,277 +373,7 @@
                        
                    
                 </div>
-                <table class="table table-bordered vm" border=1 cellpadding="5"
-                style="border-collapse:collapse; " id="example2">
-                <thead>
-                    <tr>
-                        <th rowspan="2">Огноо</th>
-                        
-                        <th rowspan="2">Салбар<br>нэгж</th>
-                        <th colspan="2">Өдөр тутмын<br> халдваргүйтэл <br> хийсэн (өөрсдөө)</th>
-                        <th colspan="2">Мэргэжлийн<br> байгууллагаар <br> хийлгэсэн <br> халдваргүйжүүлэлт</th>
-                        <th colspan="2">Мэргэжлийн<br> байгууллагаар <br> хийлгэсэн <br> халдваргүйжүүлэлт</th>
-                        <th colspan="3">Зүтгүүрийн <br> халдваргүйжүүлэлт</th>
-                        <th  colspan="2">Зорчигчийн вагон</th>
-                        <th rowspan="2">Албан <br> хэрэгцээний<br>автомашин </th>
-                        <th  rowspan="2">Ажилчдын<br>автобус</th>
-                        <th  rowspan="2">Хүнс<br>тээвэрлэх<br>машин </th>
-                      
-                    </tr>
-                    <tr>
-                        <?php $sum_self_room = 0 ?>
-                        <?php $sum_self_plot = 0 ?>
-                        <?php $sum_ex_room = 0 ?>
-                        <?php $sum_ex_plot = 0 ?>
-                        <?php $sum_ex_container = 0 ?>
-                        <?php $sum_ex_train = 0 ?>
-                        <?php $sum_loc_z = 0 ?>
-                        <?php $sum_loc_a = 0 ?>
-                        <?php $sum_loc_s = 0 ?>
-                        <?php $sum_pas_vag = 0 ?>
-                        <?php $sum_pas_teesh = 0 ?>
-                        <?php $sum_autobus = 0 ?>
-                        <?php $sum_company_car = 0 ?>
-                        <?php $sum_food_car = 0 ?>
-                   
-                        <th>Өрөө байр</th>
-                        <th>Талбай</th>
-                        <th>Өрөө байр</th>
-                        <th>Талбай</th>
-                        <th>Галт тэрэг</th>
-                        <th>Вагон <br>чингэлэг</th>
-                        <th>Зөөврийн</th>
-                        <th>Ачааны</th>
-                        <th>Сэлгээний</th>
-                        <th>Вагон</th>
-                        <th>Тээш</th>
-                       
-                    </tr>
-                </thead>
-                <tbody>
-                    <tbody>
-                        <?php $s=1;
-                        $p=0;
-                        $p1=0;
-                        $iall=0;
-                        $i1=0;
-                        $i2=0;
-                        $i3=0;
-                        $i4=0;
-                        $i5=0;
-                        $i6=0;
-                        $i7=0;
-                        $i8=0;
-                        $i9=0;
-                        $i10=0;
-                        $i11=0;
-                        $i12=0;
-                        $i13=0;
-                        $i14=0;
-                    
-                        ?>
-                        <?php $all=count($info);?>
-                        <?php $no = 1; ?>
-                        <?php $no1 = 1; ?>
-                        @foreach($info as $i=>$in)
-                            @if($p!=$in->executor_par and $p>0 )
-                    
-                                <tr style="background: #F0F0B2">
-                                    <td colspan="2"><center><b>Дүн</b> </center></td>
-                                    <td><b>{{number_format($i1)}}</b></td>
-                                    <td><b>{{number_format($i2)}}</b> </td>
-                                    <td><b>{{number_format($i3)}}</b> </td>
-                                    <td><b>{{number_format($i4)}}</b></td>
-                                    <td><b>{{number_format($i5)}}</b></td>
-                                    <td><b>{{number_format($i6)}}</b></td>
-                                    <td><b>{{number_format($i7)}}</b></td>
-                                    <td><b>{{number_format($i8)}}</b></td>
-                                    <td><b>{{number_format($i9)}}</b> </td>
-                                    <td><b>{{number_format($i10)}}</b> </td>
-                                    <td><b>{{number_format($i11)}}</b></td>
-                                    <td><b>{{number_format($i12)}}</b></td>
-                                    <td><b>{{number_format($i13)}}</b></td>
-                                    <td><b>{{number_format($i14)}}</b></td>
-                                
-                                    
-                                </tr>
-                            @endif
-                            <?php if($p!=$in->executor_par) { $p=$in->executor_par;
-                                $i1=0;
-                                $i2=0;
-                                $i3=0;
-                                $i4=0;
-                                $i5=0;
-                                $i6=0;
-                                $i7=0;
-                                $i8=0;
-                        $i9=0;
-                        $i10=0;
-                        $i11=0;
-                        $i12=0;
-                        $i13=0;
-                        $i14=0;
-                       
-                            } else  { $p1=$in->executor_par; }?>
-                    
-                            @if($p!=$p1 and $p>0)
-                                <?php $no = 1; ?>
-                                <Tr><td colspan="18" style="font-weight: bold;font-size: 12px;"> {{$in->dep_abbr}}</td></Tr>
-                                <?php $s++; ?>
-                                <tr>
-                                    @if($in->executor_id == $in->executor_par) 
-                                    <td colspan=2 ><b>{{$in->date}}</b></td>
-                                   @else
-                                   <td ><b>{{$in->date}}</b></td>
-                                   <td> <b>{{$in->executor_abbr}}</b> </td>
-                                    @endif
-                                   
-                                   
-                                  
-                                   
-                                    <td>{{$in->self_room}}</td>
-                                    <?php $sum_self_room += ($in->self_room) ?>
-                                    <td>{{$in->self_plot}}</td>
-                                    <?php $sum_self_plot += ($in->self_plot) ?>
-                                    <td>{{$in->ex_room}}</td>
-                                    <?php $sum_ex_room += ($in->ex_room) ?>
-                                    <td>{{$in->ex_plot}}</td>
-                                    <?php $sum_ex_plot += ($in->ex_plot) ?>
-                                    <td>{{$in->ex_train}}</td>
-                                    <?php $sum_ex_train += ($in->ex_train) ?>
-                                    <td>{{$in->ex_container}}</td>
-                                    <?php $sum_ex_container += ($in->ex_container) ?>
-                                    <td>{{$in->loc_z}}</td>
-                                    <?php $sum_loc_z += ($in->loc_z) ?>
-                                    <td>{{$in->loc_a}}</td>
-                                    <?php $sum_loc_a += ($in->loc_a) ?>
-                                    <td>{{$in->loc_s}}</td>
-                                    <?php $sum_loc_s += ($in->loc_s) ?>
-                                    <td>{{$in->pas_vag}}</td>
-                                    <?php $sum_pas_vag += ($in->pas_vag) ?>
-                                    <td>{{$in->pas_teesh}}</td>
-                                    <?php $sum_pas_teesh += ($in->pas_teesh) ?>
-                                    <td>{{$in->company_car}}</td>
-                                    <?php $sum_company_car += ($in->company_car) ?>
-                                    <td>{{$in->autobus}}</td>
-                                    <?php $sum_autobus += ($in->autobus) ?>
-                                    <td>{{$in->food_car}}</td>
-                                    <?php $sum_food_car += ($in->food_car) ?>
-                                     </tr>
-                                <?php $no++; ?>
-                                <?php $no1++; ?>
-                            @else
-                    
-                            <tr>
-                                @if($in->executor_id == $in->executor_par) 
-                                    <td colspan=2 ><b>{{$in->date}}</b></td>
-                                   @else
-                                   <td ><b>{{$in->date}}</b></td>
-                                   <td> <b>{{$in->executor_abbr}}</b> </td>
-                                    @endif
-                                <td>{{$in->self_room}}</td>
-                                <?php $sum_self_room += ($in->self_room) ?>
-                                <td>{{$in->self_plot}}</td>
-                                <?php $sum_self_plot += ($in->self_plot) ?>
-                                <td>{{$in->ex_room}}</td>
-                                <?php $sum_ex_room += ($in->ex_room) ?>
-                                <td>{{$in->ex_plot}}</td>
-                                <?php $sum_ex_plot += ($in->ex_plot) ?>
-                                <td>{{$in->ex_train}}</td>
-                                <?php $sum_ex_train += ($in->ex_train) ?>
-                                <td>{{$in->ex_container}}</td>
-                                <?php $sum_ex_container += ($in->ex_container) ?>
-                                <td>{{$in->loc_z}}</td>
-                                <?php $sum_loc_z += ($in->loc_z) ?>
-                                <td>{{$in->loc_a}}</td>
-                                <?php $sum_loc_a += ($in->loc_a) ?>
-                                <td>{{$in->loc_s}}</td>
-                                <?php $sum_loc_s += ($in->loc_s) ?>
-                                <td>{{$in->pas_vag}}</td>
-                                <?php $sum_pas_vag += ($in->pas_vag) ?>
-                                <td>{{$in->pas_teesh}}</td>
-                                <?php $sum_pas_teesh += ($in->pas_teesh) ?>
-                                <td>{{$in->company_car}}</td>
-                                <?php $sum_company_car += ($in->company_car) ?>
-                                <td>{{$in->autobus}}</td>
-                                <?php $sum_autobus += ($in->autobus) ?>
-                                <td>{{$in->food_car}}</td>
-                                <?php $sum_food_car += ($in->food_car) ?>
-                                 </tr>
-                                <?php $no++; ?>
-                                <?php $no1++; ?>
-                            @endif
-                            <?php
-                    
-                    
-                          
-                                  $i1=$i1+$in->self_room;
-                                  $i2=$i2+$in->self_plot;
-                                  $i3=$i3+$in->ex_room;
-                                  $i4=$i4+$in->ex_plot;
-                                  $i5=$i5+$in->ex_train;
-                                  $i6=$i6+$in->ex_container;
-                                  $i7=$i7+$in->loc_z;
-                                  $i8=$i8+$in->loc_a;
-                                  $i9=$i9+$in->loc_s;
-                                  $i10=$i10+$in->pas_vag;
-                                  $i11=$i11+$in->pas_teesh;
-                                  $i12=$i12+$in->company_car;
-                                  $i13=$i13+$in->autobus;
-                                  $i14=$i14+$in->food_car;
-                            ?>
-                            <?php
-                            if(++$iall === $all) { ?>
-                    
-                    <tr style="background: #F0F0B2">
-                                <td colspan="2"><center><b>Дүн</b> </center></td>
-                                <td><b>{{number_format($i1)}}</b></td>
-                                <td><b>{{number_format($i2)}}</b> </td>
-                                <td><b>{{number_format($i3)}}</b> </td>
-                                <td><b>{{number_format($i4)}}</b></td>
-                                <td><b>{{number_format($i5)}}</b></td>
-                                <td><b>{{number_format($i6)}}</b></td>
-                                <td><b>{{number_format($i7)}}</b></td>
-                                <td><b>{{number_format($i8)}}</b></td>
-                                <td><b>{{number_format($i9)}}</b> </td>
-                                <td><b>{{number_format($i10)}}</b> </td>
-                                <td><b>{{number_format($i11)}}</b></td>
-                                <td><b>{{number_format($i12)}}</b></td>
-                                <td><b>{{number_format($i13)}}</b></td>
-                                <td><b>{{number_format($i14)}}</b></td>
-                           
-                                
-                                
-                    
-                                    <?php } ?>
-                    
-                        @endforeach
-                      
-                    
-                        <tr style="background:#B9F0B2">
-                                <td colspan="2">Нийт</td>
-                               
-                                <td>{{$sum_self_room}}</td>
-                                <td>{{$sum_self_plot}}</td>
-                                <td>{{$sum_ex_room}}</td>
-                                <td>{{$sum_ex_plot}}</td>
-                                <td>{{$sum_ex_train}}</td>
-                                <td>{{$sum_ex_container}}</td>
-                                <td>{{$sum_loc_z}}</td>
-                                <td>{{$sum_loc_a}}</td>
-                                <td>{{$sum_loc_s}}</td>
-                                <td>{{$sum_pas_vag}}</td> 
-                                <td>{{$sum_pas_teesh}}</td>
-                                <td>{{$sum_company_car}}</td> 
-                                <td>{{$sum_autobus}}</td>
-                                <td>{{$sum_food_car}}</td>
-                             
-                            </tr>
-                       
-                     
-                    
-                    </tbody>
-            </table>
+                
             </div>
         </div>
     </div>
@@ -871,8 +599,8 @@
         });
       
             function printDiv() {
-                $("#example2").css("display","none");
-                var divToPrint=document.getElementById("example");
+              
+                var divToPrint=document.getElementById("example2");
                 newWin= window.open("");
                 newWin.document.write(divToPrint.outerHTML);
                 newWin.print();
