@@ -38,7 +38,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-body">
-                             
+                                <form action="home" method="post" >
                                         {{ csrf_field() }}
                                   <div class="row">
                                     <div class="col-md-3">
@@ -79,24 +79,23 @@
                                         <button type="submit" class="btn btn-info form-control" style="color:white">Хайх</button>
                                     </div>
                                   </div>
-                         
-                                  <div class="col-md-1">
-                                    <div class="form-group">
-                                        <label for="count_year">.</label>
-                                        <button class="btn btn-info" id="export-btn" onclick="printData()"><i class="fa fa-print" aria-hidden="true"></i> Хэвлэх/Pdf</button>
-                                    </div>
+                         </form>
+                                  
                                     
     
     
                                 </div>
                              
                               </div>
-                              <div class="col-md-10">
-
-                            </div>
-                           
-                <table class="table table-bordered vm"  cellpadding="5"
-                style="border-collapse:collapse; " id="example2">
+                          
+                <div id="test" class="table-responsive m-t-20">    
+                <div class="col-md-2">
+                             
+                                        
+                                        <button class="btn btn-info" id="export-btn" onclick="printData()"><i class="fa fa-print" aria-hidden="true"></i> Хэвлэх/Pdf</button>
+                                    </div>       
+                <table class="table table-bordered vm"  cellpadding="5" 
+                style="border-collapse:collapse; font-size:10px; color:black; word-wrap:break-word; " id="example2">
                 <thead>
                     <tr>
                         <th rowspan="2">Огноо</th>
@@ -367,6 +366,7 @@
                     </tbody>
             </table>
             </div>
+            </div>
         </div>
     </div>
 </div>
@@ -578,7 +578,7 @@
         });
         function printData() {
 
-var divToPrint=document.getElementById("printTable");
+var divToPrint=document.getElementById("example2");
 newWin= window.open("");
 newWin.document.write(divToPrint.outerHTML);
 newWin.print();
