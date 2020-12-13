@@ -51,6 +51,7 @@
                                     <th>Алба хэлтэс</th>
                                     <th>Хэрэглэгчийн нэр</th>
                                     <th>Имейл хаяг</th>
+                                    <th>Хэрэглэгчийн эрх</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -65,6 +66,14 @@
                                                
                                                 <td>{{$in->name}}</td>
                                                 <td>{{$in->email}}</td>
+                                                <td>@if($in->is_admin == 1)
+                                                    Админ
+                                                
+                                                    @else
+                                                   Хэрэглэгч
+                                                
+                                                @endif
+                                                </td>
                                                 <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$in->id}}" onclick='updateuser({{$in->id}})'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
                                           
                                             </tr>
@@ -120,7 +129,13 @@
                         <input type="text" class="form-control" id="email" name="email">
                         
                     </div>
-                 
+                    <div class="form-group col-md-4">
+                        <label for="inputAddress">Хэрэглэгчийн эрх</label>
+                        <select class="form-control" id="is_admin" name="is_admin">
+                      <option value= "1">Админ</option>
+                      <option value= "0">Хэрэглэгч</option>          
+                        </select>
+                    </div>
                 </div>
                 
             
@@ -160,6 +175,7 @@
                $('#name').val("");
                $('#executor_id').val("");
                $('#email').val("");
+               $('#is_admin').val("1");
               
         });
       $('.delete').on('click',function(){
@@ -195,6 +211,7 @@
                $('#id').val(qwe.id);
                $('#name').val(qwe.name);
                $('#email').val(qwe.email);
+               $('#is_admin').val(qwe.is_admin);
                $('#executor_id').val(qwe.executor_id).trigger('change');
              
           

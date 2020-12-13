@@ -121,7 +121,7 @@
                     
                         <li> <a class="waves-effect waves-dark" href="{{ route('report') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Тайлан</span></a>
                         </li>
-                        @if (Auth::user()->executor_id == 74) {
+                        @if (Auth::user()->is_executor == 55)
                         <li> <a class="waves-effect waves-dark" href="{{ route('user') }}" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Хэрэглэгч</span></a>
                         </li>
                         @endif

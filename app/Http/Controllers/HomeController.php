@@ -21,7 +21,7 @@ class HomeController extends Controller {
         $enddate = Input::get('fdate');
         $sexecutor = Input::get('sexecutor_id');
      
-        if (Auth::user()->executor_id == 74) {
+        if (Auth::user()->is_admin == 1) {
             $query.="";
 
         }
@@ -136,7 +136,7 @@ class HomeController extends Controller {
         $enddate = Input::get('fdate');
         $sexecutor = Input::get('sexecutor_id');
      
-        if (Auth::user()->executor_id == 74) {
+        if (Auth::user()->is_admin == 1) {
             $query.="";
 
         }

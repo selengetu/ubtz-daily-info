@@ -34,6 +34,7 @@ class UserController extends Controller {
         $user->name = $request->name;   
         $user->executor_id = $request->executor_id;
         $user->email = $request->email; 
+        $user->is_admin = $request->is_admin; 
         $user->save();
         return Redirect('user');
     }
@@ -44,7 +45,7 @@ class UserController extends Controller {
         $method = DB::table('users')
             ->where('id', $request->id)
             ->update(['name' => $request->name,'executor_id' => $request->executor_id,
-            'email' => $request->email]);
+            'email' => $request->email,'is_admin' => $request->is_admin]);
         return Redirect('user');
     }
 
