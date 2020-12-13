@@ -144,7 +144,7 @@ CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '$2y$10$RNicZtb4Zu.Fu.I8cvr2.OBDRCqwbGF952R2nzQhHDGSUvUdoLV2m',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '$2y$10$Jslxe.B.JDTPUPdbaJXinu3Mruym8iCVyOodEA8V7BYAup.Kk//5m',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE `users` (
   `is_admin` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +162,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Selenge1','selengetu@gmail.com','$2y$10$XjfCx11nvHK2BhtrSbucheF2kYvAHcRRsDqeJwz9YdjWTDx3eFLWO','wusTCacFi9XO5jd54zMspsFrjdESngoHuv9B3L3HTdjX2I6HoSqiP8mHVMGJ','2020-12-11 01:56:08','2020-12-12 22:58:03','55',0,'1'),(2,'Ijilbold','ijlee@ubtz.mn','$2y$10$XjfCx11nvHK2BhtrSbucheF2kYvAHcRRsDqeJwz9YdjWTDx3eFLWO','fESGu1hhawWKkRPLW2oAdSUu8jWU8HVeRO0sbxOMDPSiyZiwHbKySlKl3YpU','2020-12-11 23:21:55','2020-12-12 23:01:32','55',0,'1'),(5,'DSP','dsp@ubtz.mn','$2y$10$XjfCx11nvHK2BhtrSbucheF2kYvAHcRRsDqeJwz9YdjWTDx3eFLWO',NULL,'2020-12-12 22:57:33','2020-12-12 22:57:33','55',0,'1');
+INSERT INTO `users` VALUES (1,'Selenge1','selengetu@gmail.com','$2y$10$Jslxe.B.JDTPUPdbaJXinu3Mruym8iCVyOodEA8V7BYAup.Kk//5m','b5FW123w49f7vmpuOQZfgKWTkTTYbxMqlyifdVvqTQ2xarnH54VnmZDJuX4O','2020-12-11 01:56:08','2020-12-12 23:06:27','55',0,'1'),(2,'Ijilbold','ijlee@ubtz.mn','$2y$10$XjfCx11nvHK2BhtrSbucheF2kYvAHcRRsDqeJwz9YdjWTDx3eFLWO','fESGu1hhawWKkRPLW2oAdSUu8jWU8HVeRO0sbxOMDPSiyZiwHbKySlKl3YpU','2020-12-11 23:21:55','2020-12-12 23:01:32','55',0,'1'),(5,'DSP','dsp@ubtz.mn','$2y$10$XjfCx11nvHK2BhtrSbucheF2kYvAHcRRsDqeJwz9YdjWTDx3eFLWO','VswbrxLkfrV6ILGcseLNIXaC9TBs2LlYlLRVDXJYZGCDGPzjcbhgwYtBnz1F','2020-12-12 22:57:33','2020-12-12 22:57:33','55',0,'1'),(6,'test','test@ubtz.mn','$2y$10$Jslxe.B.JDTPUPdbaJXinu3Mruym8iCVyOodEA8V7BYAup.Kk//5m',NULL,'2020-12-12 23:07:32','2020-12-12 23:07:32','40',0,'0');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -175,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-13 15:03:09
+-- Dump completed on 2020-12-13 15:08:47
