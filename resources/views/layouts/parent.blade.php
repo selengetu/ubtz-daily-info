@@ -25,7 +25,7 @@
 <link href="css/colors/default.css" id="theme" rel="stylesheet">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-    <title>Халдваргүйжилтийн мэдээ</title>
+    <title>Халдваргүйжүүлэлтийн мэдээ</title>
 
 </head>
 

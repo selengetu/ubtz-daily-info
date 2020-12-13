@@ -22,7 +22,7 @@
 
     <div class="row page-titles">
         <div class="col-md-8 align-self-center">
-            <h3 class="text-themecolor">Замын хэмжээнд хийгдэж буй халдваргүйжүүлэлтийн мэдээ</h3>
+           
             
         </div>
         
@@ -87,13 +87,14 @@
                                 </div>
                              
                               </div>
-                          
-                <div id="test" class="table-responsive m-t-20">    
-                <div class="col-md-2">
+                              <div class="col-md-2">
                              
                                         
-                                        <button class="btn btn-info" id="export-btn" onclick="printData()"><i class="fa fa-print" aria-hidden="true"></i> Хэвлэх/Pdf</button>
-                                    </div>       
+                             <button class="btn btn-info" id="export-btn" onclick="printData()"><i class="fa fa-print" aria-hidden="true"></i> Хэвлэх/Pdf</button>
+                         </div>       
+                <div id="test" class="table-responsive m-t-20"> 
+                <h3 class="text-themecolor">Замын хэмжээнд хийгдэж буй халдваргүйжүүлэлтийн мэдээ</h3>   
+                
                 <table class="table table-bordered vm"  cellpadding="5" 
                 style="border-collapse:collapse; font-size:10px; color:black; word-wrap:break-word; " id="example2">
                 <thead>
@@ -578,7 +579,7 @@
         });
         function printData() {
 
-var divToPrint=document.getElementById("example2");
+var divToPrint=document.getElementById("test");
 newWin= window.open("");
 newWin.document.write(divToPrint.outerHTML);
 newWin.print();
