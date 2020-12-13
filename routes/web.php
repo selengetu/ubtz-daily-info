@@ -37,3 +37,12 @@ Route::get('/getexecutor/{id?}',function($id = 0){
     return $dt;
 });
 
+Route::get('/user', 'UserController@index')->name('user');
+Route::post('/report', 'UserController@index')->name('user');
+Route::get('/inuserfo/delete/{id}', 'UserController@destroy');
+Route::post('/adduser','UserController@store');
+Route::post('/updateuser','UserController@update');
+Route::get('/userfill/{id?}',function($id = 0){
+    $dt=App\User::where('id','=',$id)->get();
+    return $dt;
+});

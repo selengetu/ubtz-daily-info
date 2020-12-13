@@ -5,6 +5,7 @@ use App\Info;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DB;
+use Auth;
 
 class HomeController extends Controller {
 
@@ -19,6 +20,24 @@ class HomeController extends Controller {
         $startdate= Input::get('sdate');
         $enddate = Input::get('fdate');
         $sexecutor = Input::get('sexecutor_id');
+     
+        if (Auth::user()->executor_id == 74) {
+            $query.="";
+
+        }
+        else
+        {
+            $type =DB::select('select t.executor_type from EXECUTOR t where t.executor_id =  '. Auth::user()->executor_id.'');
+            if ($type[0]->executor_type ==2){
+                $query.=" and t.executor_id = '".Auth::user()->executor_id."' ";
+    
+            }  
+            else{
+                $query.=" and ( t.executor_id in (select executor_id from EXECUTOR t
+                where t.executor_par='".Auth::user()->executor_id."'))";
+            }
+
+        }
         if ($startdate !=0 && $startdate && $enddate !=0 && $enddate !=NULL) {
             $query.="and date between '".$startdate."' and '".$enddate." 23:59:59'";
 

@@ -16,6 +16,7 @@
 <link href="../assets/node_modules/morrisjs/morris.css" rel="stylesheet">
 <!--c3 CSS -->
 <link href="../assets/node_modules/c3-master/c3.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="css/style.css" rel="stylesheet">
 <!-- Dashboard 1 Page CSS -->
@@ -104,10 +105,12 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         
-                    <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Бүртгэл</span></a>
+                    <li> <a class="waves-effect waves-dark" href="{{ route('home') }}" aria-expanded="false"><i class="fa fa-pencil"></i><span class="hide-menu">Бүртгэл</span></a>
                         </li>
                     
                         <li> <a class="waves-effect waves-dark" href="{{ route('report') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Тайлан</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{{ route('user') }}" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Хэрэглэгч</span></a>
                         </li>
                     </ul>
                   
@@ -157,6 +160,7 @@
     <!--morris JavaScript -->
     <script src="../assets/node_modules/raphael/raphael-min.js"></script>
     <script src="../assets/node_modules/morrisjs/morris.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
     <!--c3 JavaScript -->
     <script src="../assets/node_modules/d3/d3.min.js"></script>
     <script src="../assets/node_modules/c3-master/c3.min.js"></script>
