@@ -12,6 +12,12 @@
 @endsection
 
 @section('content')
+<style>
+   .form-group {
+    margin-bottom: 5px;
+}
+    
+</style>
 <div class="container-fluid">
 
     <div class="row page-titles">

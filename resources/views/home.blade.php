@@ -2,16 +2,16 @@
 
 @section('style')
 
-<style>
-    .table td,
-    .table th {
-        font-size: 10px;
-    }
-    
-</style>
+
 @endsection
 
 @section('content')
+<style>
+   .form-group {
+    margin-bottom: 5px;
+}
+    
+</style>
 <div class="container-fluid">
 
     <div class="row page-titles">
