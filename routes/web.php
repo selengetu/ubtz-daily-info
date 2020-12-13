@@ -41,7 +41,7 @@ Route::post('/changePassword','UserController@postCredentials');
 
 Route::get('/user', 'UserController@index')->name('user');
 Route::post('/report', 'UserController@index')->name('user');
-Route::get('/inuserfo/delete/{id}', 'UserController@destroy');
+Route::get('/user/delete/{id}', 'UserController@destroy');
 Route::post('/adduser','UserController@store');
 Route::post('/updateuser','UserController@update');
 Route::get('/userfill/{id?}',function($id = 0){

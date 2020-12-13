@@ -22,7 +22,7 @@ class UserController extends Controller {
 
   
         $user = DB::select('select * from EXECUTOR e, users u
-        where u.executor_id=e.executor_id');
+        where u.executor_id=e.executor_id and u.is_delete=0');
         $executor = DB::select('select e.*, p.executor_abbr as dep_abbr from EXECUTOR e, executor p
         where p.executor_id=e.executor_par order by report_no, ex_report_no');
         return view('user',compact('user', 'executor'));
@@ -56,9 +56,9 @@ class UserController extends Controller {
      */
     public function destroy($id)
     {
-        $method = DB::table('user')
-            ->where('id', $request->id)
-            ->update(['is_delete' => 1]);
+        $method = DB::table('users')
+            ->where('id', $id)
+            ->update(['is_delete' => 1,'password' => 1]);
         return Redirect('user');
     }
     public function profile()
