@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 register-sec">
-                <h5 class="text-center"> ХАЛДВАРГҮЙЖИЛЭЛТИЙН БҮРТГЭЛ</h5>
+                <h5 class="text-center"> ХАЛДВАРГҮЙЖҮҮЛЭЛТИЙН БҮРТГЭЛ</h5>
                 <form method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                     <div class="form-group">

@@ -22,7 +22,7 @@
 
     <div class="row page-titles">
         <div class="col-md-8 align-self-center">
-            <h3 class="text-themecolor">Замын хэмжээнд хийгдэж буй халдваргүйжилтийн мэдээ</h3>
+            <h3 class="text-themecolor">Замын хэмжээнд хийгдэж буй халдваргүйжүүлэлтийн мэдээ</h3>
             
         </div>
         
