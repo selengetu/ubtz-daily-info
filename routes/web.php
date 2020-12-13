@@ -36,6 +36,8 @@ Route::get('/getexecutor/{id?}',function($id = 0){
     order by executor_abbr');
     return $dt;
 });
+Route::get('/profile', 'UserController@profile')->name('profile');
+Route::post('/changePassword','UserController@postCredentials');
 
 Route::get('/user', 'UserController@index')->name('user');
 Route::post('/report', 'UserController@index')->name('user');

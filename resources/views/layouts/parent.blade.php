@@ -52,7 +52,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('home') }}">
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
@@ -85,9 +85,20 @@
                         <!-- ============================================================== -->
                         <!-- Profile -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown u-pro">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark profile-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="" /> <span class="hidden-md-down">{{Auth::user()->name}} &nbsp;</span> </a>
-                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="javascript:;" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-user">  {{Auth::user()->name}}</i>
+                              <p class="d-lg-none d-md-block">
+                                Account
+                              </p>
+                            
+                            <div class="ripple-container"></div></a>
+                            
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
+                            <a class="dropdown-item" href="{{ url('/profile') }}">Нууц үг солих</a>
+                              <a class="dropdown-item" href="{{ url('/logout') }}">Системээс гарах</a>
+                            </div>
+                          </li>
                     </ul>
                 </div>
             </nav>
@@ -110,8 +121,10 @@
                     
                         <li> <a class="waves-effect waves-dark" href="{{ route('report') }}" aria-expanded="false"><i class="fa fa-table"></i><span class="hide-menu">Тайлан</span></a>
                         </li>
+                        @if (Auth::user()->executor_id == 74) {
                         <li> <a class="waves-effect waves-dark" href="{{ route('user') }}" aria-expanded="false"><i class="fa fa-user"></i><span class="hide-menu">Хэрэглэгч</span></a>
                         </li>
+                        @endif
                     </ul>
                   
                 </nav>

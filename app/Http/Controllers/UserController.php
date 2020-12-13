@@ -1,12 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Info;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DB;
 use Auth;
-
+use Validator;
+use Hash;
+use Session;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\URL;
 class UserController extends Controller {
 
     
@@ -37,7 +41,7 @@ class UserController extends Controller {
     public function update(Request $request)
     {
         
-        $method = DB::table('user')
+        $method = DB::table('users')
             ->where('id', $request->id)
             ->update(['name' => $request->name,'executor_id' => $request->executor_id,
             'email' => $request->email]);
@@ -56,6 +60,66 @@ class UserController extends Controller {
             ->where('id', $request->id)
             ->update(['is_delete' => 1]);
         return Redirect('user');
+    }
+    public function profile()
+    {
+        return view('profile');
+    }
+
+    public function admin_credential_rules(array $data)
+    {
+        $messages = [
+            'current-password.required' => 'Please enter current password',
+            'password.required' => 'Please enter password',
+        ];
+
+        $validator = Validator::make($data, [
+            'current-password' => 'required',
+            'password' => 'required|same:password',
+            'password_confirmation' => 'required|same:password',
+        ], $messages);
+
+        return $validator;
+    }
+    public function postCredentials(Request $request)
+    {
+        if(Auth::Check())
+        {
+            $request_data = $request->All();
+            $validator = $this->admin_credential_rules($request_data);
+            if($validator->fails())
+            {
+                Session::flash('message', 'Шинэ нууц үг хоорондоо таарахгүй байна!');
+                Session::flash('alert-class', 'alert-danger');
+
+                return Redirect::to(URL::previous() . "#tab_1_3");
+            }
+            else
+            {
+                $current_password = Auth::User()->password;
+                if(Hash::check($request_data['current-password'], $current_password))
+                {
+                    $user_id = Auth::User()->id;
+                    $obj_user = User::find($user_id);
+                    $obj_user->password = Hash::make($request_data['password']);;
+                    $obj_user->save();
+                    Session::flash('message', 'Нууц үг солигдлоо!');
+                    Session::flash('alert-class', 'alert-success');
+
+                    return Redirect::to(URL::previous() . "#tab_1_3");
+                }
+                else
+                {
+                    Session::flash('message', 'Одоогийн нууц үг буруу байна!');
+                    Session::flash('alert-class', 'alert-danger');
+                    return Redirect::to(URL::previous() . "#tab_1_3");
+                }
+            }
+        }
+        else
+        {
+            return redirect()->to('/');
+        }
     }
     
 }

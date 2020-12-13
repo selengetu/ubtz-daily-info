@@ -100,6 +100,7 @@ class HomeController extends Controller {
         $info->company_car = $request->company_car;
         $info->autobus = $request->autobus;
         $info->food_car = $request->food_car;
+        $info->added_id = Auth::user()->id;
         $info->save();
         return Redirect('home');
     }
@@ -134,21 +135,39 @@ class HomeController extends Controller {
         $startdate= Input::get('sdate');
         $enddate = Input::get('fdate');
         $sexecutor = Input::get('sexecutor_id');
+     
+        if (Auth::user()->executor_id == 74) {
+            $query.="";
+
+        }
+        else
+        {
+            $type =DB::select('select t.executor_type from EXECUTOR t where t.executor_id =  '. Auth::user()->executor_id.'');
+            if ($type[0]->executor_type ==2){
+                $query.=" and t.executor_id = '".Auth::user()->executor_id."' ";
+    
+            }  
+            else{
+                $query.=" and ( t.executor_id in (select executor_id from EXECUTOR t
+                where t.executor_par='".Auth::user()->executor_id."'))";
+            }
+
+        }
         if ($startdate !=0 && $startdate && $enddate !=0 && $enddate !=NULL) {
             $query.="and date between '".$startdate."' and '".$enddate." 23:59:59'";
-    
+
         }
         else
         {
             $query.=" ";
-    
+
         }
-    
+
         if ($sexecutor!=NULL && $sexecutor !=0) {
             $type =DB::select('select t.executor_type from EXECUTOR t where t.executor_id =  '. $sexecutor.'');
             if ($type[0]->executor_type ==1){
                 $dep =DB::select('select executor_par from EXECUTOR t where t.executor_id =  '. $sexecutor.'');
-    
+
                 $query.=" and t.executor_id in (select executor_id from EXECUTOR t where t.executor_par='".$dep[0]->executor_par."')";
             }
             else{
@@ -159,10 +178,10 @@ class HomeController extends Controller {
         {
             $sexecutor=0;
             $query.=" ";
-    
+
             
         }
-    
+  
         $executor = DB::select('select e.*, p.executor_abbr as dep_abbr from EXECUTOR e, executor p
         where p.executor_id=e.executor_par order by report_no, ex_report_no');
         $dep = DB::select('select * from EXECUTOR t where t.executor_type!=2 order by executor_abbr ');

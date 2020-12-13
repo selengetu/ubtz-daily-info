@@ -65,7 +65,7 @@
                                                
                                                 <td>{{$in->name}}</td>
                                                 <td>{{$in->email}}</td>
-                                                <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$in->id}}" onclick='updateinfo({{$in->id}})'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
+                                                <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$in->id}}" onclick='updateuser({{$in->id}})'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
                                           
                                             </tr>
                                             <?php $no++; ?>
@@ -111,13 +111,13 @@
                     <div class="form-group col-md-4">
                       
                     <label for="inputCity">Нэр</label>
-                    <input type="number" class="form-control" id="self_room" name="self_room">
-                
+                    <input type="text" class="form-control" id="name" name="name">
+                    <input type="hidden" class="form-control" id="id" name="id">
                     </div>
                     <div class="form-group col-md-4">
                      
                         <label for="inputState">Имейл</label>
-                        <input type="number" class="form-control" step="0.01"  id="self_plot" name="self_plot">
+                        <input type="text" class="form-control" id="email" name="email">
                         
                     </div>
                  
