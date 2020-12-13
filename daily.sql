@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
 -- Host: localhost    Database: daily
 -- ------------------------------------------------------
--- Server version	8.0.21
+-- Server version	5.7.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,25 +23,26 @@ DROP TABLE IF EXISTS `daily_info`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `daily_info` (
-  `info_id` int NOT NULL AUTO_INCREMENT,
-  `executor_id` int DEFAULT NULL,
-  `self_room` int DEFAULT NULL,
-  `self_plot` int DEFAULT NULL,
-  `ex_room` int DEFAULT NULL,
-  `ex_plot` int DEFAULT NULL,
-  `ex_train` int DEFAULT NULL,
-  `ex_container` int DEFAULT NULL,
-  `loc_z` int DEFAULT NULL,
-  `loc_a` int DEFAULT NULL,
-  `loc_s` int DEFAULT NULL,
-  `pas_vag` int DEFAULT NULL,
-  `pas_teesh` int DEFAULT NULL,
-  `company_car` int DEFAULT NULL,
-  `autobus` int DEFAULT NULL,
-  `food_car` int DEFAULT NULL,
+  `info_id` int(11) NOT NULL AUTO_INCREMENT,
+  `executor_id` int(11) DEFAULT NULL,
+  `self_room` int(11) DEFAULT NULL,
+  `self_plot` int(11) DEFAULT NULL,
+  `ex_room` int(11) DEFAULT NULL,
+  `ex_plot` int(11) DEFAULT NULL,
+  `ex_train` int(11) DEFAULT NULL,
+  `ex_container` int(11) DEFAULT NULL,
+  `loc_z` int(11) DEFAULT NULL,
+  `loc_a` int(11) DEFAULT NULL,
+  `loc_s` int(11) DEFAULT NULL,
+  `pas_vag` int(11) DEFAULT NULL,
+  `pas_teesh` int(11) DEFAULT NULL,
+  `company_car` int(11) DEFAULT NULL,
+  `autobus` int(11) DEFAULT NULL,
+  `food_car` int(11) DEFAULT NULL,
   `date` date DEFAULT NULL,
+  `added_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +51,7 @@ CREATE TABLE `daily_info` (
 
 LOCK TABLES `daily_info` WRITE;
 /*!40000 ALTER TABLE `daily_info` DISABLE KEYS */;
-INSERT INTO `daily_info` VALUES (3,31,1,NULL,1,1,1,0,5,6,6,2,2,35,67,8,'2020-12-12'),(4,52,12,12,12,12,11,12,13,13,11,14,12,13,12,17,'2020-12-12'),(6,31,1,2,3,1,1,1,2,2,1,1,3,3,1,1,'2020-12-05'),(7,14,1,2,1,2,1,2,1,3,4,7,6,8,9,2,'2020-12-05'),(8,31,1,1,1,1,1,1,1,1,1,1,1,1,1,1,'2020-12-16'),(9,30,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-12-12');
+INSERT INTO `daily_info` VALUES (3,31,1,NULL,1,1,1,0,5,6,6,2,2,35,67,8,'2020-12-12',NULL),(4,52,12,14,12,12,11,12,13,13,11,14,12,13,12,17,'2020-12-12',NULL),(6,31,1,2,3,1,1,1,2,2,1,1,3,3,1,1,'2020-12-05',NULL),(7,14,1,2,1,2,1,2,1,3,4,7,6,8,9,2,'2020-12-05',NULL),(8,31,1,1,1,1,1,1,1,1,1,1,1,1,1,1,'2020-12-16',NULL),(9,30,1,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2020-12-12',NULL),(10,85,1,1,1,1,1,1,1,1,4,NULL,NULL,NULL,NULL,NULL,'2020-12-05',NULL),(11,52,1,2,3,4,NULL,3,1,3,6,NULL,2,NULL,NULL,NULL,'2020-12-12',NULL),(12,35,2,2,3,3,4,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,33,'2020-12-19',3);
 /*!40000 ALTER TABLE `daily_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -62,15 +63,15 @@ DROP TABLE IF EXISTS `executor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `executor` (
-  `executor_id` int NOT NULL,
+  `executor_id` int(11) NOT NULL,
   `executor_name` varchar(100) DEFAULT NULL,
   `executor_abbr` varchar(45) DEFAULT NULL,
-  `executor_par` int DEFAULT NULL,
-  `ex_report_no` int DEFAULT NULL,
-  `executor_type` int DEFAULT NULL,
-  `report_no` int DEFAULT NULL,
+  `executor_par` int(11) DEFAULT NULL,
+  `ex_report_no` int(11) DEFAULT NULL,
+  `executor_type` int(11) DEFAULT NULL,
+  `report_no` int(11) DEFAULT NULL,
   PRIMARY KEY (`executor_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,9 +92,9 @@ DROP TABLE IF EXISTS `migrations`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `migrations` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int NOT NULL,
+  `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -140,16 +141,18 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '$2y$10$RNicZtb4Zu.Fu.I8cvr2.OBDRCqwbGF952R2nzQhHDGSUvUdoLV2m',
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `executor_id` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `is_delete` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +161,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Selenge','selengetu@gmail.com','$2y$10$RNicZtb4Zu.Fu.I8cvr2.OBDRCqwbGF952R2nzQhHDGSUvUdoLV2m',NULL,'2020-12-11 01:56:08','2020-12-11 01:56:08'),(2,'Ijilbold','ijlee@ubtz.mn','$2y$10$28AMgjsDEc.L.z8f4Df.TOQpb9jlv077GG8X/GsBVbqF7Z7XYFfV.',NULL,'2020-12-11 23:21:55','2020-12-11 23:21:55');
+INSERT INTO `users` VALUES (1,'Selenge1','selengetu@gmail.com','$2y$10$MPzgPSTTZ3WCt2NGkCOr/e3G7JaEqXk0zAeVaUFdy32lLbgj9ISae','1FLv9MTaOaBg3zA1Ivow3lPFCYJzz1ah3pSHUfjIOE8kRkFEG1e348fQpmPz','2020-12-11 01:56:08','2020-12-12 21:11:31','74',0),(2,'Ijilbold','ijlee@ubtz.mn','$2y$10$28AMgjsDEc.L.z8f4Df.TOQpb9jlv077GG8X/GsBVbqF7Z7XYFfV.',NULL,'2020-12-11 23:21:55','2020-12-11 23:21:55','74',0),(3,'test','test@ubtz.mn','1','gz5kFR1Ga8x9qqQq0FtnnbQJIsVvLqQBAxX6Pb36GNjJh5BPCNuqrm8yHmGt','2020-12-12 20:55:19','2020-12-12 20:55:19','40',1),(4,'Selenge','nts_2012@yahoo.com','$2y$10$RNicZtb4Zu.Fu.I8cvr2.OBDRCqwbGF952R2nzQhHDGSUvUdoLV2m',NULL,'2020-12-12 22:22:40','2020-12-12 22:22:40','29',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -171,4 +174,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-12 15:52:48
+-- Dump completed on 2020-12-13 14:33:34
