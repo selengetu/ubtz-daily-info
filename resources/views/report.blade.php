@@ -23,15 +23,9 @@
     <div class="row page-titles">
         <div class="col-md-8 align-self-center">
             <h3 class="text-themecolor">Замын хэмжээнд хийгдэж буй халдваргүйжилтийн мэдээ</h3>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Бүртгэл</a></li>
-                <li class="breadcrumb-item active">Тайлан</li>
-            </ol>
+            
         </div>
-        <div class="col-md-4 align-self-center">
-            <a href="#" class="btn waves-effect waves-light btn btn-info pull-right hidden-sm-down" data-toggle="modal"
-                data-target="#exampleModal"> <i class="fa fa-plus" aria-hidden="true"></i> Мэдээ бүртгэх</a>
-        </div>
+        
     </div>
 
     <div class="row">
