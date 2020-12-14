@@ -110,7 +110,7 @@
                         <th rowspan="2">Албан <br> хэрэгцээний<br>автомашин </th>
                         <th  rowspan="2">Ажилчдын<br>автобус</th>
                         <th  rowspan="2">Хүнс<br>тээвэрлэх<br>машин </th>
-                      
+                        <th rowspan="2">Тайлбар</th>
                     </tr>
                     <tr>
                         <?php $sum_self_room = 0 ?>
@@ -186,7 +186,7 @@
                                     <td><b>{{number_format($i12)}}</b></td>
                                     <td><b>{{number_format($i13)}}</b></td>
                                     <td><b>{{number_format($i14)}}</b></td>
-                                
+                                    <td></td>
                                     
                                 </tr>
                             @endif
@@ -210,7 +210,7 @@
                     
                             @if($p!=$p1 and $p>0)
                                 <?php $no = 1; ?>
-                                <Tr><td colspan="18" style="font-weight: bold;font-size: 12px;"> {{$in->dep_abbr}}</td></Tr>
+                                <Tr><td colspan="19" style="font-weight: bold;font-size: 12px;"> {{$in->dep_abbr}}</td></Tr>
                                 <?php $s++; ?>
                                 <tr>
                                     @if($in->executor_id == $in->executor_par) 
@@ -251,6 +251,7 @@
                                     <?php $sum_autobus += ($in->autobus) ?>
                                     <td>{{$in->food_car}}</td>
                                     <?php $sum_food_car += ($in->food_car) ?>
+                                    <td>{{$in->description}}</td>
                                      </tr>
                                 <?php $no++; ?>
                                 <?php $no1++; ?>
@@ -291,6 +292,7 @@
                                 <?php $sum_autobus += ($in->autobus) ?>
                                 <td>{{$in->food_car}}</td>
                                 <?php $sum_food_car += ($in->food_car) ?>
+                                <td>{{$in->description}}</td>
                                  </tr>
                                 <?php $no++; ?>
                                 <?php $no1++; ?>
@@ -333,7 +335,7 @@
                                 <td><b>{{number_format($i12)}}</b></td>
                                 <td><b>{{number_format($i13)}}</b></td>
                                 <td><b>{{number_format($i14)}}</b></td>
-                           
+                                <td></td>
                                 
                                 
                     
@@ -359,7 +361,7 @@
                                 <td>{{$sum_company_car}}</td> 
                                 <td>{{$sum_autobus}}</td>
                                 <td>{{$sum_food_car}}</td>
-                             
+                                <td></td>
                             </tr>
                        
                      

@@ -109,6 +109,7 @@
                                     <th rowspan="2">Албан <br> хэрэгцээний<br>автомашин </th>
                                     <th  rowspan="2">Ажилчдын<br>автобус</th>
                                     <th  rowspan="2">Хүнс<br>тээвэрлэх<br>машин </th>
+                                    <th rowspan="2">Тайлбар</th>
                                     <th rowspan="2"></th>
                                 </tr>
                                 <tr>
@@ -185,7 +186,7 @@
                                                 <td><b>{{number_format($i12)}}</b></td>
                                                 <td><b>{{number_format($i13)}}</b></td>
                                                 <td><b>{{number_format($i14)}}</b></td>
-                                               
+                                                <td></td>
                                                 <td></td>
                                                 
                                             </tr>
@@ -210,7 +211,7 @@
                                 
                                         @if($p!=$p1 and $p>0)
                                             <?php $no = 1; ?>
-                                            <Tr><td colspan="18" style="font-weight: bold;font-size: 12px;"> {{$in->dep_abbr}}</td></Tr>
+                                            <Tr><td colspan="19" style="font-weight: bold;font-size: 12px;"> {{$in->dep_abbr}}</td></Tr>
                                             <?php $s++; ?>
                                             <tr>
                                                 @if($in->executor_id == $in->executor_par) 
@@ -251,6 +252,7 @@
                                                 <?php $sum_autobus += ($in->autobus) ?>
                                                 <td>{{$in->food_car}}</td>
                                                 <?php $sum_food_car += ($in->food_car) ?>
+                                                <td>{{$in->description}}</td>
                                                 <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$in->info_id}}" onclick='updateinfo({{$in->info_id}})'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
                                             </tr>
                                             <?php $no++; ?>
@@ -292,6 +294,7 @@
                                             <?php $sum_autobus += ($in->autobus) ?>
                                             <td>{{$in->food_car}}</td>
                                             <?php $sum_food_car += ($in->food_car) ?>
+                                            <td>{{$in->description}}</td>
                                             <td class='m1'> <a class='btn btn-xs btn-info update' data-toggle='modal' data-target='#exampleModal' data-id="{{$in->info_id}}" onclick='updateinfo({{$in->info_id}})'><i class="fa fa-pencil-square-o" style="color: rgb(255, 255, 255); "></i></a> </td>
                                         </tr>
                                             <?php $no++; ?>
@@ -335,7 +338,7 @@
                                             <td><b>{{number_format($i12)}}</b></td>
                                             <td><b>{{number_format($i13)}}</b></td>
                                             <td><b>{{number_format($i14)}}</b></td>
-                                       
+                                            <td></td>
                                             <td></td>
                                             
                                 
@@ -361,6 +364,7 @@
                                             <td>{{$sum_company_car}}</td> 
                                             <td>{{$sum_autobus}}</td>
                                             <td>{{$sum_food_car}}</td>
+                                            <td></td>
                                             <td></td>
                                         </tr>
                                    
@@ -499,6 +503,13 @@
                     <label for="inputState">Хүнсний машин</label>
                     <input type="number" class="form-control"  id="food_car" name="food_car">
                     </div>
+                    <div class="form-group col-md-12">
+                    <label for="w3review">Тайлбар</label>
+
+                    <textarea class="form-control" id="description" name="description" rows="2"    >
+
+</textarea>
+</div>
                 </div>
                 
             
@@ -573,6 +584,7 @@
                $('#autobus').val("");
                $('#food_car').val("");
                $('#date1').val("");
+               $('#description').val("");
             $('.delete').hide();
             $("#executor").show();
     $("#dep").show();
@@ -633,7 +645,7 @@
                $('#autobus').val(qwe.autobus);
                $('#food_car').val(qwe.food_car);
                $('#date1').val(qwe.date);
-          
+               $('#description').val(qwe.description);
            });
 
        });

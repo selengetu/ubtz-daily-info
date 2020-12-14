@@ -100,6 +100,7 @@ class HomeController extends Controller {
         $info->company_car = $request->company_car;
         $info->autobus = $request->autobus;
         $info->food_car = $request->food_car;
+        $info->description = $request->description;
         $info->added_id = Auth::user()->id;
         $info->save();
         return Redirect('home');
@@ -113,7 +114,7 @@ class HomeController extends Controller {
             ->update(['date' => $request->date1,'self_room' => $request->self_room,
             'self_plot' => $request->self_plot,'ex_room' => $request->ex_room,'ex_plot' => $request->ex_plot,
             'ex_train' => $request->ex_train,'ex_container' => $request->ex_container,'loc_z' => $request->loc_z,
-            'loc_a' => $request->loc_a,'loc_s' => $request->loc_s,'pas_vag' => $request->pas_vag,
+            'loc_a' => $request->loc_a,'loc_s' => $request->loc_s,'description' => $request->description ,'pas_vag' => $request->pas_vag,
             'pas_teesh' => $request->pas_teesh,'company_car' => $request->company_car,'autobus' => $request->autobus,'food_car' => $request->food_car]);
         return Redirect('home');
     }

@@ -13,7 +13,7 @@
                     <div class="form-group">
                         <label for="exampleInputName1" class="text-uppercase">НЭВТРЭХ НЭР</label>
                         <input id="email" type="text" class="form-control @error('email') is-invalid @enderror"
-                            name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            name="email" value="{{ old('email') }}" required>
 
                        
                     </div>
