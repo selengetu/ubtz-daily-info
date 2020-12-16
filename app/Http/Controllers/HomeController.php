@@ -74,7 +74,7 @@ class HomeController extends Controller {
         where p.executor_id=e.executor_par order by report_no, ex_report_no');
         $dep = DB::select('select * from EXECUTOR t where t.executor_type!=2 order by executor_abbr ');
         $info = DB::select('select t.* , e.*, p.executor_name as dep_name , p.executor_abbr as dep_abbr from daily_info t ,
-         executor e, executor p where e.executor_id=t.executor_id and p.executor_id=e.executor_par '.$query.' order by e.report_no, date');
+         executor e, executor p where e.executor_id=t.executor_id and p.executor_id=e.executor_par '.$query.' order by e.report_no, e.ex_report_no, date');
         return view('home',compact('info', 'executor', 'dep','startdate', 'enddate'));
     }
 
@@ -192,7 +192,7 @@ class HomeController extends Controller {
         where p.executor_id=e.executor_par order by report_no, ex_report_no');
         $dep = DB::select('select * from EXECUTOR t where t.executor_type!=2 order by executor_abbr ');
         $info = DB::select('select t.* , e.*, p.executor_name as dep_name , p.executor_abbr as dep_abbr from daily_info t ,
-         executor e, executor p where e.executor_id=t.executor_id and p.executor_id=e.executor_par '.$query.' order by e.report_no, date');
+         executor e, executor p where e.executor_id=t.executor_id and p.executor_id=e.executor_par '.$query.' order by e.report_no, e.ex_report_no, date');
         return view('report',compact('info', 'executor', 'dep','startdate', 'enddate'));
     }
 }
