@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use DB;
 use Auth;
-
+use Carbon\Carbon;
 class HomeController extends Controller {
 
     
@@ -44,7 +44,10 @@ class HomeController extends Controller {
         }
         else
         {
-            $query.=" ";
+            $query.=" and date between subdate(current_date, 1) and subdate(current_date, 1)";
+            $startdate= Carbon::today()->subDays(1)->toDateString();
+            $enddate=  Carbon::today()->subDays(1)->toDateString();
+
 
         }
 
@@ -72,7 +75,7 @@ class HomeController extends Controller {
         $dep = DB::select('select * from EXECUTOR t where t.executor_type!=2 order by executor_abbr ');
         $info = DB::select('select t.* , e.*, p.executor_name as dep_name , p.executor_abbr as dep_abbr from daily_info t ,
          executor e, executor p where e.executor_id=t.executor_id and p.executor_id=e.executor_par '.$query.' order by e.report_no, date');
-        return view('home',compact('info', 'executor', 'dep'));
+        return view('home',compact('info', 'executor', 'dep','startdate', 'enddate'));
     }
 
     public function store(Request $request) {
@@ -160,7 +163,9 @@ class HomeController extends Controller {
         }
         else
         {
-            $query.=" ";
+            $query.=" and date between subdate(current_date, 1) and subdate(current_date, 1)";
+            $startdate= Carbon::today()->subDays(1)->toDateString();
+            $enddate=  Carbon::today()->subDays(1)->toDateString();
 
         }
 
@@ -188,6 +193,6 @@ class HomeController extends Controller {
         $dep = DB::select('select * from EXECUTOR t where t.executor_type!=2 order by executor_abbr ');
         $info = DB::select('select t.* , e.*, p.executor_name as dep_name , p.executor_abbr as dep_abbr from daily_info t ,
          executor e, executor p where e.executor_id=t.executor_id and p.executor_id=e.executor_par '.$query.' order by e.report_no, date');
-        return view('report',compact('info', 'executor', 'dep'));
+        return view('report',compact('info', 'executor', 'dep','startdate', 'enddate'));
     }
 }

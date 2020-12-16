@@ -45,7 +45,7 @@
                                       <div class="form-group">
                                         <label for="count_year">Эхлэх огноо</label>
                                         <input class="form-control form-control-inline input-medium date-picker" name="sdate" id="sdate"
-                        size="16" type="text" value="">
+                        size="16" type="text" value="{{$startdate}}">
                                       </div>
                                    
                                 </div>
@@ -53,7 +53,7 @@
                                     <div class="form-group">
                                       <label for="count_year">Дуусах огноо</label>
                                       <input class="form-control form-control-inline input-medium date-picker" name="fdate" id="fdate"
-                        size="16" type="text" value="">
+                        size="16" type="text" value="{{$enddate}}">
                                     </div>
                                  
                               </div>
