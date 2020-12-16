@@ -33,8 +33,8 @@ class HomeController extends Controller {
     
             }  
             else{
-                $query.=" and ( t.executor_id in (select executor_id from EXECUTOR t
-                where t.executor_par='".Auth::user()->executor_id."'))";
+                $query.=" and  t.executor_id in (select executor_id from EXECUTOR t
+                where t.executor_par='".Auth::user()->executor_id."')";
             }
 
         }
@@ -44,9 +44,9 @@ class HomeController extends Controller {
         }
         else
         {
-            $query.=" and date between subdate(current_date, 1) and subdate(current_date, 1)";
-            $startdate= Carbon::today()->subDays(1)->toDateString();
-            $enddate=  Carbon::today()->subDays(1)->toDateString();
+            $query.=" and date between current_date and current_date";
+            $startdate= Carbon::today()->toDateString();
+            $enddate=  Carbon::today()->toDateString();
 
 
         }
@@ -69,7 +69,7 @@ class HomeController extends Controller {
 
             
         }
-  
+      
         $executor = DB::select('select e.*, p.executor_abbr as dep_abbr from EXECUTOR e, executor p
         where p.executor_id=e.executor_par order by report_no, ex_report_no');
         $dep = DB::select('select * from EXECUTOR t where t.executor_type!=2 order by executor_abbr ');
@@ -152,8 +152,8 @@ class HomeController extends Controller {
     
             }  
             else{
-                $query.=" and ( t.executor_id in (select executor_id from EXECUTOR t
-                where t.executor_par='".Auth::user()->executor_id."'))";
+                $query.=" and  t.executor_id in (select executor_id from EXECUTOR t
+                where t.executor_par='".Auth::user()->executor_id."')";
             }
 
         }
@@ -163,9 +163,9 @@ class HomeController extends Controller {
         }
         else
         {
-            $query.=" and date between subdate(current_date, 1) and subdate(current_date, 1)";
-            $startdate= Carbon::today()->subDays(1)->toDateString();
-            $enddate=  Carbon::today()->subDays(1)->toDateString();
+            $query.=" and date between current_date and current_date";
+            $startdate= Carbon::today()->toDateString();
+            $enddate=  Carbon::today()->toDateString();
 
         }
 
