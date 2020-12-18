@@ -172,20 +172,20 @@
                                 
                                             <tr style="background: #F0F0B2">
                                                 <td colspan="2"><center><b>Дүн</b> </center></td>
-                                                <td><b>{{number_format($i1)}}</b></td>
-                                                <td><b>{{number_format($i2)}}</b> </td>
-                                                <td><b>{{number_format($i3)}}</b> </td>
-                                                <td><b>{{number_format($i4)}}</b></td>
-                                                <td><b>{{number_format($i5)}}</b></td>
-                                                <td><b>{{number_format($i6)}}</b></td>
-                                                <td><b>{{number_format($i7)}}</b></td>
-                                                <td><b>{{number_format($i8)}}</b></td>
-                                                <td><b>{{number_format($i9)}}</b> </td>
-                                                <td><b>{{number_format($i10)}}</b> </td>
-                                                <td><b>{{number_format($i11)}}</b></td>
-                                                <td><b>{{number_format($i12)}}</b></td>
-                                                <td><b>{{number_format($i13)}}</b></td>
-                                                <td><b>{{number_format($i14)}}</b></td>
+                                                <td><b>{{number_format($i1, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i2, 2, '.', '')}}</b> </td>
+                                                <td><b>{{number_format($i3, 2, '.', '')}}</b> </td>
+                                                <td><b>{{number_format($i4, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i5, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i6, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i7, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i8, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i9, 2, '.', '')}}</b> </td>
+                                                <td><b>{{number_format($i10, 2, '.', '')}}</b> </td>
+                                                <td><b>{{number_format($i11, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i12, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i13, 2, '.', '')}}</b></td>
+                                                <td><b>{{number_format($i14, 2, '.', '')}}</b></td>
                                                 <td></td>
                                                 <td></td>
                                                 
@@ -324,20 +324,20 @@
                                 
                                 <tr style="background: #F0F0B2">
                                             <td colspan="2"><center><b>Дүн</b> </center></td>
-                                            <td><b>{{number_format($i1)}}</b></td>
-                                            <td><b>{{number_format($i2)}}</b> </td>
-                                            <td><b>{{number_format($i3)}}</b> </td>
-                                            <td><b>{{number_format($i4)}}</b></td>
-                                            <td><b>{{number_format($i5)}}</b></td>
-                                            <td><b>{{number_format($i6)}}</b></td>
-                                            <td><b>{{number_format($i7)}}</b></td>
-                                            <td><b>{{number_format($i8)}}</b></td>
-                                            <td><b>{{number_format($i9)}}</b> </td>
-                                            <td><b>{{number_format($i10)}}</b> </td>
-                                            <td><b>{{number_format($i11)}}</b></td>
-                                            <td><b>{{number_format($i12)}}</b></td>
-                                            <td><b>{{number_format($i13)}}</b></td>
-                                            <td><b>{{number_format($i14)}}</b></td>
+                                            <td><b>{{number_format($i1, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i2, 2, '.', '')}}</b> </td>
+                                            <td><b>{{number_format($i3, 2, '.', '')}}</b> </td>
+                                            <td><b>{{number_format($i4, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i5, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i6, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i7, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i8, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i9, 2, '.', '')}}</b> </td>
+                                            <td><b>{{number_format($i10, 2, '.', '')}}</b> </td>
+                                            <td><b>{{number_format($i11, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i12, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i13, 2, '.', '')}}</b></td>
+                                            <td><b>{{number_format($i14, 2, '.', '')}}</b></td>
                                             <td></td>
                                             <td></td>
                                             
@@ -351,9 +351,9 @@
                                             <td colspan="2">Нийт</td>
                                            
                                             <td>{{$sum_self_room}}</td>
-                                            <td>{{$sum_self_plot}}</td>
+                                            <td>{{number_format($sum_self_plot, 2, '.', '')}}</td>
                                             <td>{{$sum_ex_room}}</td>
-                                            <td>{{$sum_ex_plot}}</td>
+                                            <td>>{{number_format($sum_ex_plot, 2, '.', '')}}</td>
                                             <td>{{$sum_ex_train}}</td>
                                             <td>{{$sum_ex_container}}</td>
                                             <td>{{$sum_loc_z}}</td>
@@ -447,7 +447,7 @@
                         <div class="form-group col-md-4">
                          
                             <label for="inputState">Талбай</label>
-                            <input type="number" class="form-control"  id="ex_plot" name="ex_plot">
+                            <input type="number" class="form-control"  step=0.01 id="ex_plot" name="ex_plot">
                             
                         </div>
                         <div class="form-group col-md-4">

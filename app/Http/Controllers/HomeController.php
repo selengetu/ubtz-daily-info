@@ -79,7 +79,7 @@ class HomeController extends Controller {
     }
 
     public function store(Request $request) {
-
+ 
         $info = new Info;
         $info->date = $request->date1;
         if($request->executor_id == NULL){
